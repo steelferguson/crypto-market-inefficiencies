@@ -1,5 +1,6 @@
 import ccxt
 import pandas as pd
+import sqlite3 
 
 #initialize connection with Kraken
 exchange = ccxt.kraken()
@@ -12,3 +13,9 @@ df = pd.DataFrame(ohlcv, columns=["timestamp", "open", "high", "low", "close", "
 df["timestamp"] = pd.to_datetime(df["timestamp"], unit="ms")
 
 print(df.head())
+df.to_csv("crypto_data.csv", index=False)
+
+# save to sq lite db 
+conn = sqlite3.connect("crypto_data.db")
+df.to_sql("crypto_prices", conn, if_exists="replace", index=False)
+conn.close()
