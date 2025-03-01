@@ -18,7 +18,7 @@ KUCOIN_SYMBOLS = [
 KRAKEN_SYMBOLS = ["MATIC/USDT"]  # List of one symbol for now
 
 # Number of days for historical data retrieval in fetch_historical_data
-DAYS_HISTORY = 30  
+DAYS_HISTORY = 10  
 
 # Timeframe for OHLCV data ("1h" = hourly, smaller intervals available)
 TIMEFRAME = "1m"  # Can be "5m", "15m", "1h", "4h", "1d", etc.
