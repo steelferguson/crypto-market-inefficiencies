@@ -22,3 +22,10 @@ DAYS_HISTORY = 60
 
 # Timeframe for OHLCV data ("1h" = hourly, smaller intervals available)
 TIMEFRAME = "1m"  # Can be "5m", "15m", "1h", "4h", "1d", etc.
+
+# Feature Engineering Configuration
+MA_WINDOWS = [5, 15, 30, 60*2, 60*24]
+EMA_WINDOWS = [10, 15, 50, 60*24]
+MOMENTUM_PERIODS = [5, 30]
+VOLATILITY_WINDOWS = [15, 60, 60*24]
+VOLUME_WINDOWS = [15, 60, 60*24]
