@@ -7,8 +7,10 @@ from src.feature_engineering import (
     calculate_future_returns, calculate_features
 )
 from config.config import (
-    MA_WINDOWS, EMA_WINDOWS, MOMENTUM_PERIODS, VOLATILITY_WINDOWS, VOLUME_WINDOWS
-)
+  FUTURE_WINDOWS, TARGET_THRESHOLDS,
+  MA_WINDOWS, EMA_WINDOWS, MOMENTUM_PERIODS, VOLATILITY_WINDOWS, VOLUME_WINDOWS, 
+  RSI_WINDOWS, BOLLINGER_WINDOWS, MACD_WINDOWS
+) 
 
 @pytest.fixture
 def sample_data():
@@ -26,7 +28,7 @@ def sample_data():
 def test_calculate_future_returns(sample_data):
     # Check calculation for same symbol
     print(sample_data["symbol"].value_counts())  
-    result = calculate_future_returns(sample_data, future_window=4)
+    result = calculate_future_returns(sample_data, future_windows=[4])
     print(result.tail(20))
 
     # Assertions; Check if future return calculation is correct
@@ -76,5 +78,25 @@ def test_calculate_features(sample_data):
 
     # ✅ Verify Momentum (Example: Momentum-5)
     assert result["price_momentum_5"].iloc[5] == 10, "Incorrect Momentum-5 calculation"
+
+    # Assertions for Moving Averages
+    assert "sma_15" in result.columns
+    assert "ema_15" in result.columns
+
+    # Assertions for Momentum & Rate of Change
+    assert "price_momentum_15" in result.columns
+    assert "roc_15" in result.columns
+
+    # Assertions for RSI
+    assert "rsi_15" in result.columns
+    assert not result["rsi_15"].isna().all()  # Ensure RSI has calculated values
+
+    # Assertions for Bollinger Bands
+    assert "bollinger_upper_15" in result.columns
+    assert "bollinger_lower_15" in result.columns
+
+    # Assertions for MACD
+    assert "macd_36_72" in result.columns
+    assert "macd_signal_36_72" in result.columns
 
     print("✅ All feature engineering tests passed successfully!")
