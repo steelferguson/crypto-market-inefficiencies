@@ -57,7 +57,7 @@ FEATURE_COLUMNS = [
 
 # Wide table cross coin features
 CROSS_COIN_FEATURES = [
-    "price_momentum_15", "price_momentum_60",
+    "momentum_15", "momentum_60",
     "roc_15", "roc_60",
     "sma_1440",
     "rsi_1440",
@@ -67,4 +67,14 @@ CROSS_COIN_FEATURES = [
 FINAL_SELECTED_COINS = [
     "BTC/USDT", "ETH/USDT", "SOL/USDT", 
     "BNB/USDT", "XRP/USDT", "ADA/USDT", "DOGE/USDT"
+]
+
+TARGET_COLUMNS = [
+    "ada_increase_1pct_15min",
+    "bnb_increase_1pct_15min",
+    "btc_increase_1pct_15min",
+    "doge_increase_1pct_15min",
+    "eth_increase_1pct_15min",
+    "sol_increase_1pct_15min", 
+    "xrp_increase_1pct_15min"
 ]
