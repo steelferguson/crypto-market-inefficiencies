@@ -87,7 +87,7 @@ for epoch in range(num_epochs):
 
         # Store batch predictions & labels
         epoch_labels.append(batch_y.detach().numpy())
-        epoch_preds.append((torch.sigmoid(outputs).detach().numpy() > 0.5).astype(int))
+        epoch_preds.append((torch.sigmoid(outputs).detach().numpy() > 0.75).astype(int))
 
     # Compute F1-score for epoch
     y_true = np.vstack(epoch_labels)
