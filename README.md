@@ -5,7 +5,11 @@ Data: per minute prices of 7 crytpo coins with associated momentum and correlati
 Target: whether the currency will increase by > X within Y minutes. Starting with 1% in 15 minutes
 
 ## Small NN: 
-<img width="754" alt="image" src="https://github.com/user-attachments/assets/fe5dccdd-2d59-47e9-87bc-3238e774c65d" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/fe5dccdd-2d59-47e9-87bc-3238e774c65d" />
+
+## Wider NN:
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/bbc65dd9-1c1b-4264-b28a-f3bcc537b7ed" />
+
 
 ## 7 XGBoost Models:
 ada_increase_1pct_15min F1-score: 0.5706
